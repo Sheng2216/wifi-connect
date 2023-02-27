@@ -1,14 +1,16 @@
 [package]
 name = "wifi-connect"
-version = "4.11.2"
+version = "4.4.6"
 authors = ["Zahari Petkov <zahari@balena.io>"]
 description = "Easy WiFi setup for Linux devices from your mobile phone or laptop"
 
 [dependencies]
-network-manager = { git = "https://github.com/balena-io-modules/network-manager.git" }
+#network-manager = "0.11"
+#network-manager = { path = "/home/rak/workspace/network-manager" }
+network-manager = { path = "./network-manager" }
 clap = "2.24"
 iron = "0.6"
-iron-cors = "0.8"
+iron-cors = "0.7"
 staticfile = "0.5"
 mount = "0.4"
 router = "0.6"
@@ -19,10 +21,10 @@ persistent = "0.4"
 params = "0.8"
 log = "0.3"
 env_logger = "0.4"
-nix = "0.25"
+nix = "0.10"
 
 [dependencies.error-chain]
-version = "0.12"
+version = "0.11"
 default-features = false
 
 [profile.release]
