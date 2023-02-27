@@ -57,15 +57,15 @@ jobs:
     environment:
       TARGET: armv7-unknown-linux-gnueabihf
 
-  i386:
-    <<: *build
-    environment:
-      TARGET: i686-unknown-linux-gnu
+#  i386:
+#    <<: *build
+#    environment:
+#      TARGET: i686-unknown-linux-gnu
 
-  amd64:
-    <<: *build
-    environment:
-      TARGET: x86_64-unknown-linux-gnu
+#  amd64:
+#    <<: *build
+#    environment:
+#      TARGET: x86_64-unknown-linux-gnu
 
   test:
     docker:
@@ -144,29 +144,29 @@ workflows:
               only: /.*/
             tags:
               only: /.*/
-      - i386:
-          requires:
-            - test
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              only: /.*/
-      - amd64:
-          requires:
-            - test
-          filters:
-            branches:
-              only: /.*/
-            tags:
-              only: /.*/
+ #     - i386:
+ #         requires:
+ #           - test
+ #         filters:
+ #           branches:
+ #             only: /.*/
+ #           tags:
+ #             only: /.*/
+ #     - amd64:
+ #         requires:
+ #           - test
+ #         filters:
+ #           branches:
+ #             only: /.*/
+ #           tags:
+ #             only: /.*/
       - deploy:
           requires:
             - aarch64
             - rpi
             - armv7hf
-            - i386
-            - amd64
+ #           - i386
+ #           - amd64
           filters:
             branches:
               only: /.*/
